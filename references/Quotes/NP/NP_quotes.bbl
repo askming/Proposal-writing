@@ -1,0 +1,80 @@
+\begin{thebibliography}{10}
+
+\bibitem{burr2005bayesian}
+Deborah Burr and Hani Doss.
+\newblock A bayesian semiparametric model for random-effects meta-analysis.
+\newblock {\em Journal of the American Statistical Association}, 100(469),
+  2005.
+
+\bibitem{butler1992random}
+Steven~M Butler and Thomas~A Louis.
+\newblock Random effects models with non-parametric priors.
+\newblock {\em Statistics in medicine}, 11(14-15):1981--2000, 1992.
+
+\bibitem{dunson2010nonparametric}
+David~B Dunson.
+\newblock Nonparametric bayes applications to biostatistics.
+\newblock {\em Bayesian nonparametrics}, 28:223, 2010.
+
+\bibitem{hartford2000consequences}
+Alan Hartford and Marie Davidian.
+\newblock Consequences of misspecifying assumptions in nonlinear mixed effects
+  models.
+\newblock {\em Computational statistics \& data analysis}, 34(2):139--164,
+  2000.
+
+\bibitem{ishwaran2002independent}
+Hemant Ishwaran and Glen Takahara.
+\newblock Independent and identically distributed monte carlo algorithms for
+  semiparametric linear mixed models.
+\newblock {\em Journal of the American Statistical Association},
+  97(460):1154--1166, 2002.
+
+\bibitem{kleinman1998semiparametric}
+Ken~P Kleinman and Joseph~G Ibrahim.
+\newblock A semiparametric bayesian approach to the random effects model.
+\newblock {\em Biometrics}, pages 921--938, 1998.
+
+\bibitem{lee2008flexible}
+Katherine~J Lee and Simon~G Thompson.
+\newblock Flexible parametric models for random-effects distributions.
+\newblock {\em Statistics in medicine}, 27(3):418--434, 2008.
+
+\bibitem{mcculloch2011prediction}
+Charles~E McCulloch and John~M Neuhaus.
+\newblock Prediction of random effects in linear and generalized linear models
+  under model misspecification.
+\newblock {\em Biometrics}, 67(1):270--279, 2011.
+
+\bibitem{skrondal2009prediction}
+Anders Skrondal and Sophia Rabe-Hesketh.
+\newblock Prediction in multilevel generalized linear models.
+\newblock {\em Journal of the Royal Statistical Society: Series A (Statistics
+  in Society)}, 172(3):659--687, 2009.
+
+\bibitem{tao1999estimation}
+Huageng Tao, Mari Palta, Brian~S Yandell, and Michael~A Newton.
+\newblock An estimation method for the semiparametric mixed effects model.
+\newblock {\em Biometrics}, 55(1):102--110, 1999.
+
+\bibitem{verbeke1996linear}
+Geert Verbeke and Emmanuel Lesaffre.
+\newblock A linear mixed-effects model with heterogeneity in the random-effects
+  population.
+\newblock {\em Journal of the American Statistical Association},
+  91(433):217--221, 1996.
+
+\bibitem{verbeke1997effect}
+Geert Verbeke and Emmanuel Lesaffre.
+\newblock The effect of misspecifying the random-effects distribution in linear
+  mixed models for longitudinal data.
+\newblock {\em Computational Statistics \& Data Analysis}, 23(4):541--556,
+  1997.
+
+\bibitem{welham2004prediction}
+Sue Welham, Brian Cullis, Beverley Gogel, Arthur Gilmour, and Robin Thompson.
+\newblock Prediction in linear mixed models.
+\newblock {\em Australian \& New Zealand Journal of Statistics},
+  46(3):325--347, 2004.
+
+\end{thebibliography}

@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{fu2012quantile}
+Liya Fu and You-Gan Wang.
+\newblock Quantile regression for longitudinal data with a working correlation
+  model.
+\newblock {\em Computational Statistics \& Data Analysis}, 56(8):2526--2538,
+  2012.
+
+\bibitem{geraci2013linear}
+Marco Geraci and Matteo Bottai.
+\newblock Linear quantile mixed models.
+\newblock {\em Statistics and Computing}, pages 1--19, 2013.
+
+\bibitem{koenker2005quantile}
+Roger Koenker.
+\newblock {\em Quantile regression}.
+\newblock Number~38. Cambridge university press, 2005.
+
+\bibitem{koenker2001quantile}
+Roger Koenker and Kevin Hallock.
+\newblock Quantile regression: An introduction.
+\newblock {\em Journal of Economic Perspectives}, 15(4):43--56, 2001.
+
+\bibitem{luo2012bayesian}
+Youxi Luo, Heng Lian, and Maozai Tian.
+\newblock Bayesian quantile regression for longitudinal data models.
+\newblock {\em Journal of Statistical Computation and Simulation},
+  82(11):1635--1649, 2012.
+
+\bibitem{reed2009partially}
+Craig Reed and Keming Yu.
+\newblock A partially collapsed gibbs sampler for bayesian quantile regression.
+\newblock 2009.
+
+\bibitem{yu2001bayesian}
+Keming Yu and Rana~A Moyeed.
+\newblock Bayesian quantile regression.
+\newblock {\em Statistics \& Probability Letters}, 54(4):437--447, 2001.
+
+\end{thebibliography}

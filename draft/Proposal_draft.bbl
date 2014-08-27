@@ -1,0 +1,190 @@
+\begin{thebibliography}{10}
+
+\bibitem{blackwell1973ferguson}
+David Blackwell and James~B MacQueen.
+\newblock Ferguson distributions via p{\'o}lya urn schemes.
+\newblock {\em The annals of statistics}, pages 353--355, 1973.
+
+\bibitem{butler1992random}
+Steven~M Butler and Thomas~A Louis.
+\newblock Random effects models with non-parametric priors.
+\newblock {\em Statistics in medicine}, 11(14-15):1981--2000, 1992.
+
+\bibitem{dunson2010nonparametric}
+David~B Dunson.
+\newblock Nonparametric bayes applications to biostatistics.
+\newblock {\em Bayesian nonparametrics}, 28:223, 2010.
+
+\bibitem{escobar1995bayesian}
+Michael~D Escobar and Mike West.
+\newblock Bayesian density estimation and inference using mixtures.
+\newblock {\em Journal of the american statistical association},
+  90(430):577--588, 1995.
+
+\bibitem{ferguson1973bayesian}
+Thomas~S Ferguson.
+\newblock A bayesian analysis of some nonparametric problems.
+\newblock {\em The annals of statistics}, pages 209--230, 1973.
+
+\bibitem{fisher1919xv}
+Ronald~A Fisher.
+\newblock The correlation between relatives on the supposition of mendelian
+  inheritance.
+\newblock {\em Transactions of the royal society of Edinburgh},
+  52(02):399--433, 1919.
+
+\bibitem{fu2012quantile}
+Liya Fu and You-Gan Wang.
+\newblock Quantile regression for longitudinal data with a working correlation
+  model.
+\newblock {\em Computational Statistics \& Data Analysis}, 56(8):2526--2538,
+  2012.
+
+\bibitem{geraci2007quantile}
+Marco Geraci and Matteo Bottai.
+\newblock Quantile regression for longitudinal data using the asymmetric
+  laplace distribution.
+\newblock {\em Biostatistics}, 8(1):140--154, 2007.
+
+\bibitem{ishwaran2000inference}
+Hemant Ishwaran.
+\newblock Inference for the random effects in bayesian generalized linear mixed
+  models.
+
+\bibitem{ishwaran2001gibbs}
+Hemant Ishwaran and Lancelot~F James.
+\newblock Gibbs sampling methods for stick-breaking priors.
+\newblock {\em Journal of the American Statistical Association}, 96(453), 2001.
+
+\bibitem{jung1996quasi}
+Sin-Ho Jung.
+\newblock Quasi-likelihood for median regression models.
+\newblock {\em Journal of the American Statistical Association},
+  91(433):251--257, 1996.
+
+\bibitem{kleinman1998semiparametric}
+Ken~P Kleinman and Joseph~G Ibrahim.
+\newblock A semiparametric bayesian approach to the random effects model.
+\newblock {\em Biometrics}, pages 921--938, 1998.
+
+\bibitem{koenker2005quantile}
+Roger Koenker.
+\newblock {\em Quantile regression}.
+\newblock Cambridge university press, 2005.
+
+\bibitem{koenker1978regression}
+Roger Koenker and Gilbert Bassett~Jr.
+\newblock Regression quantiles.
+\newblock {\em Econometrica: journal of the Econometric Society}, pages 33--50,
+  1978.
+
+\bibitem{koenker2001quantile}
+Roger Koenker and Kevin Hallock.
+\newblock Quantile regression: An introduction.
+\newblock {\em Journal of Economic Perspectives}, 15(4):43--56, 2001.
+
+\bibitem{koenker1999goodness}
+Roger Koenker and Jose~AF Machado.
+\newblock Goodness of fit and related inference processes for quantile
+  regression.
+\newblock {\em Journal of the american statistical association},
+  94(448):1296--1310, 1999.
+
+\bibitem{kottas2001bayesian}
+Athanasios Kottas and Alan~E Gelfand.
+\newblock Bayesian semiparametric median regression modeling.
+\newblock {\em Journal of the American Statistical Association},
+  96(456):1458--1468, 2001.
+
+\bibitem{kotz2001laplace}
+Samuel Kotz, Tomasz Kozubowski, and Krzysztof Podgorski.
+\newblock {\em The Laplace Distribution and Generalizations: A Revisit With
+  Applications to Communications, Exonomics, Engineering, and Finance}.
+\newblock Number 183. Springer, 2001.
+
+\bibitem{kozumi2011gibbs}
+Hideo Kozumi and Genya Kobayashi.
+\newblock Gibbs sampling methods for bayesian quantile regression.
+\newblock {\em Journal of statistical computation and simulation},
+  81(11):1565--1578, 2011.
+
+\bibitem{lee2008flexible}
+Katherine~J Lee and Simon~G Thompson.
+\newblock Flexible parametric models for random-effects distributions.
+\newblock {\em Statistics in medicine}, 27(3):418--434, 2008.
+
+\bibitem{liu2009mixed}
+Yuan Liu and Matteo Bottai.
+\newblock Mixed-effects models for conditional quantiles with longitudinal
+  data.
+\newblock {\em The International Journal of Biostatistics}, 5(1), 2009.
+
+\bibitem{luo2012bayesian}
+Youxi Luo, Heng Lian, and Maozai Tian.
+\newblock Bayesian quantile regression for longitudinal data models.
+\newblock {\em Journal of Statistical Computation and Simulation},
+  82(11):1635--1649, 2012.
+
+\bibitem{mcculloch2001generalized}
+Charles~E McCulloch and John~M Neuhaus.
+\newblock {\em Generalized linear mixed models}.
+\newblock Wiley Online Library, 2001.
+
+\bibitem{mehrotra1997non}
+Devan~V Mehrotra.
+\newblock Non-iterative robust estimators of variance components in
+  within-subject designs.
+\newblock {\em Statistics in medicine}, 16(13):1465--1479, 1997.
+
+\bibitem{muliere1998approximating}
+Pietro Muliere and Luca Tardella.
+\newblock Approximating distributions of random functionals of
+  ferguson-dirichlet priors.
+\newblock {\em Canadian Journal of Statistics}, 26(2):283--297, 1998.
+
+\bibitem{neuhaus1992effects}
+John~M Neuhaus, Walter~W Hauck, and John~D Kalbfleisch.
+\newblock The effects of mixture distribution misspecification when fitting
+  mixed-effects logistic models.
+\newblock {\em Biometrika}, 79(4):755--762, 1992.
+
+\bibitem{ohlssen2007flexible}
+David~I Ohlssen, Linda~D Sharples, and David~J Spiegelhalter.
+\newblock Flexible random-effects models using bayesian semi-parametric models:
+  applications to institutional comparisons.
+\newblock {\em Statistics in medicine}, 26(9):2088--2112, 2007.
+
+\bibitem{reed2009partially}
+Craig Reed and Keming Yu.
+\newblock A partially collapsed gibbs sampler for bayesian quantile regression.
+\newblock 2009.
+
+\bibitem{rikhtehgaran2013semi}
+Reyhaneh Rikhtehgaran and Iraj Kazemi.
+\newblock Semi-parametric bayesian estimation of mixed-effects models using the
+  multivariate skew-normal distribution.
+\newblock {\em Computational Statistics}, 28(5):2007--2027, 2013.
+
+\bibitem{searle2009variance}
+Shayle~R Searle, George Casella, and Charles~E McCulloch.
+\newblock {\em Variance components}, volume 391.
+\newblock John Wiley \& Sons, 2009.
+
+\bibitem{sethuraman1991constructive}
+Jayaram Sethuraman.
+\newblock A constructive definition of dirichlet priors.
+\newblock Technical report, DTIC Document, 1991.
+
+\bibitem{yang2010semiparametric}
+Mingan Yang, David~B Dunson, and Donna Baird.
+\newblock Semiparametric bayes hierarchical models with mean and variance
+  constraints.
+\newblock {\em Computational statistics \& data analysis}, 54(9):2172--2186,
+  2010.
+
+\bibitem{yu2001bayesian}
+Keming Yu and Rana~A Moyeed.
+\newblock Bayesian quantile regression.
+\newblock {\em Statistics \& Probability Letters}, 54(4):437--447, 2001.
+
+\end{thebibliography}

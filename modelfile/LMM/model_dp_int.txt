@@ -1,0 +1,42 @@
+model{
+	### define the stick-breaking part
+	r[1] ~ dbeta(1,alpha)
+	p[1] <- r[1]
+	for (j in 2:N-1){ # N is the number of truncation DP
+		r[j] ~ dbeta(1,alpha)
+		p[j] <- r[j]*(1-r[j-1])*p[j-1]/r[j-1]
+	}
+	sum_p <- sum(p[1:N-1])
+	for (k in N:N) {p[k] <- 1-sum_p}
+	
+	### the mixed model part
+	for (i in 1:I) {
+		Z[i] ~ dcat(p[])
+		gamma[i] ~ dnorm(theta[Z[i]],tauinv[Z[i]])
+		for (j in 1:J) {
+			mu[i,j] <- gamma[i]+inprod(x[i,j,],beta[])
+			y[i,j] ~ dnorm(mu[i,j],prec)
+		}
+	}
+	
+	### baseline distribution
+	for (k in 1:N){
+		theta[k] ~ dnorm(mu0,tau0)
+		tau[k] <- 1/tauinv[k]
+		tauinv[k] ~ dgamma(3,b)
+	}
+	
+	### assign the priors
+	mu0 ~ dnorm(0,0.01)
+	tau0 <- pow(sigmaF0,-2)
+	sigmaF0 ~ dunif(0,10)
+	b ~ dgamma (0.03, 0.03)
+	alpha ~ dunif(0.3, 10)
+	
+	beta[1] ~ dnorm(0, 0.01)
+	beta[2] ~ dnorm(0, 0.01)
+	beta[3] ~ dnorm(0, 0.01)
+	sigma ~ dgamma(0.01,0.01)
+	prec <- pow(sigma,-2)
+	
+}

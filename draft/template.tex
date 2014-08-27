@@ -1,0 +1,138 @@
+\documentclass[12pt]{article}
+\newcounter{qcounter}
+\usepackage{fullpage}
+\usepackage {setspace}
+\usepackage[hang,flushmargin]{footmisc} %control footnote indent
+\usepackage{url} % for website links
+\usepackage{amssymb,amsmath}%for matrix
+\usepackage{graphicx}%for figure
+\usepackage{appendix}%for appendix
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{morefloats}%in case there are too many float tables and figures
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{listings}
+\captionsetup[subtable]{font=normal}
+\usepackage{color}
+ 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+% change section/subsection fonts
+\usepackage{titlesec}
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\bfseries}
+\titleformat*{\subsubsection}{\small\bfseries}
+%\renewcommand{\thefigure}{\alph{subfigure}}
+
+
+\begin{document}
+%cover page
+\begin{titlepage}
+\doublespacing
+\title{\normalsize REGRESSION WITH AUTOCORRELATED DATA: A STUDY OF TIME TREND OF GLOBAL INFANT MORTALITY RATE}
+\date{}
+\maketitle
+
+{\normalsize
+\begin{center}
+by\\[5mm]
+Name, degree\\[10mm]
+APPROVED:\\[10mm]
+\end{center}}
+
+\begin{table}[h]
+\begin{flushright}
+\begin{tabular}{ p{8cm}}
+
+\hline
+prof1, PHD\ \\[0.8cm]
+\hline
+prof2, PHD\\[0.8cm]
+\hline
+prof3, PHD\\
+
+\end{tabular}
+\end{flushright}
+\label{default}
+\end{table}
+
+\thispagestyle{empty}
+\pagestyle{empty}
+\end{titlepage}
+
+\newpage
+\thispagestyle{empty}
+\begin{center}
+Coptyright\\
+by\\
+author, degree\\
+year
+\end{center}
+
+
+\newpage
+\thispagestyle{empty}
+\doublespacing
+\begin{center}
+DEDICATION\\
+xxx\\
+xxx
+\end{center}
+
+
+\newpage
+\thispagestyle{empty}
+\doublespacing
+\begin{center}
+{\normalsize TITLE}\\[3.2cm]
+
+by\\[0.5cm]
+
+author, degree\\[3.2cm]
+
+Presented to the Faculty of The University of Texas\\
+School of Public Health\\
+in Partial Fulfillment\\
+of the Requirements\\
+for the Degree of\\[1.5cm]
+MASTER OF SCIENCE\\[1.5cm]
+\singlespacing
+THE UNIVERSITY OF TEXAS\\
+SCHOOL OF PULIC HEALTH\\
+Houston, Texas\\
+month, year
+\end{center}
+
+
+\newpage
+\thispagestyle{empty}
+\doublespacing
+\begin{center}
+ACKNOWLEDGEMENTS
+\end{center}
+text text text
+
+
+\newpage
+\thispagestyle{empty}
+\doublespacing
+\begin{center}
+{\normalsize TITLE}\\[2.3cm]
+\singlespacing
+authoer, degreee\\
+The University of Texas\\
+School of Public Health, year
+\end{center}
+
+\doublespacing
+\noindent
+Thesis Chair, prof1, PhD\\
+\indent
+text text text
+
+
+\end{document}

@@ -1,0 +1,58 @@
+## y is the out come, with only one column
+## x is the covariate matrix, with same row as y and # columns = # covariates + 1
+## t[i] is the starting time point for subject i
+## p is the quantile
+## K is the number of cluster in truncation DPM model
+## gamma is the random effect
+
+model{
+	### define the stick-breaking part
+	r[1] ~ dbeta(1,alpha)
+	p[1] <- r[1]
+	for (j in 2:K-1){
+		r[j] ~ dbeta(1,alpha)
+		p[j] <- r[j]*(1-r[j-1])*p[j-1]/r[j-1]
+	}
+	sum_p <- sum(p[1:K-1])
+	for (k in K:K) {p[k] <- 1-sum_p}
+
+	### base distribution for DP
+	for (k in 1:K){
+		theta[k] ~ dnorm(mu0,tau0)
+		tau[k] <- 1/tauinv[k]
+		tauinv[k] ~ dgamma(3,b)
+	}
+	### centering theta
+	for (k in 1:K){
+		ctheta[k] <- theta[k]-inprod(theta[],p[])
+	}
+	
+	### BQLMM part using DP model R.E.
+	k1<-(1-2*qt)/(qt*(1-qt))
+	k2<-2/(qt*(1-qt))
+
+	for (i in 1:I){
+	    Z[i] ~ dcat(p[])
+	    gamma[i]~dnorm(ctheta[Z[i]],tauinv[Z[i]]) # the random effect
+	    for (j in t[i]:(t[i+1]-1)){
+		er[j]~dexp(sigma)
+		mu[j] <- inprod(x[j,], beta[]) + gamma[i] + k1*er[j]
+		prec[j] <- sigma/(k2*er[j])
+		y[j]~dnorm(mu[j], prec[j])
+	     }
+	}
+
+	
+	### assign the priors
+	## DPM part
+	mu0 ~ dnorm(0,0.01)
+	tau0 <- pow(sigmaF0,-2)
+	sigmaF0 ~ dunif(0,10)
+	b ~ dgamma (0.03, 0.03)
+	alpha ~ dgamma(1, 1)
+	
+	#QR part
+	beta[1]~dnorm(0,0.001)
+	beta[2]~dnorm(0,0.001)
+	sigma~dgamma(0.001,0.001)
+}

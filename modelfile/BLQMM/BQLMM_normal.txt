@@ -1,0 +1,26 @@
+## y is the out come, with only one column
+## x is the covariate matrix, with same row as y and # columns = # covariates + 1
+## t[i] is the starting time point for subject i
+## qt is quantile
+
+model{
+	k1<-(1-2*qt)/(qt*(1-qt))
+	k2<-2/(qt*(1-qt))
+
+	for (i in 1:I){
+	    gamma[i]~dnorm(0,gamma.phi) # the random effect
+	    for (j in t[i]:(t[i+1]-1)){
+		er[j]~dexp(sigma)
+		mu[j] <- inprod(x[j,], beta[]) + gamma[i] + k1*er[j]
+		prec[j] <- sigma/(k2*er[j])
+		y[j]~dnorm(mu[j], prec[j])
+	     }
+	}
+	
+	beta[1]~dnorm(0,0.001)
+	beta[2]~dnorm(0,0.001)
+	sigma~dgamma(0.001,0.001)
+	gamma.phi~dgamma(0.001,0.001)
+	phi.squared<-1/gamma.phi
+	phi<-sqrt(phi.squared)
+}

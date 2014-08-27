@@ -1,0 +1,19 @@
+model{
+	### the mixed model part
+	for (i in 1:I) {
+		gamma[i] ~ dnorm(0,prec)
+		for (j in 1:J) {
+			mu[i,j] <- gamma[i]+inprod(x[i,j,],beta[])
+			y[i,j] ~ dnorm(mu[i,j],prec)
+		}
+	}
+		
+	### assign the priors
+	
+	beta[1] ~ dnorm(0, 0.01)
+	beta[2] ~ dnorm(0, 0.01)
+	beta[3] ~ dnorm(0, 0.01)
+	sigma ~ dgamma(0.01,0.01)
+	prec <- pow(sigma,-2)
+	
+}
