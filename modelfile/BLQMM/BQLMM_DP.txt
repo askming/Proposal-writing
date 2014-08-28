@@ -49,7 +49,7 @@ model{
 	tau0 <- pow(sigmaF0,-2)
 	sigmaF0 ~ dunif(0,10)
 	b ~ dgamma (0.03, 0.03)
-	alpha ~ dunif(0.3, 10)
+	alpha ~ dunif(0.3, 8)
 	
 	#QR part
 	beta[1]~dnorm(0,0.001)
