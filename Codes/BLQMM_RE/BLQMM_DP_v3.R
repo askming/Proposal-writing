@@ -20,14 +20,14 @@ runjags = function(data, y='y', x='x', tau, model, I, K){
 	N<-K # always people use 52 ## increasing N makes big difference
 
 	jags.data <- list(y=matrix(unlist(data[[y]]),nrow=I),x=array(unlist(data[[x]]),dim=c(I,J,2)), I=I, J=J, N=N, qt=tau)
-	jags.params <- c("beta","gamma1","gamma1","alpha1","alpha2","p", "sigma")
+	jags.params <- c("beta","gamma1","gamma2","alpha","alpha2","p", "sigma")
 	jags.inits <- function(){list(beta=c(0.1,0.1), sigma=0.1, b=0.1, sigmaF0=0.1, mu0=0, alpha1=1, alpha2=1)}
 	jags.fit <- jags(data=jags.data,inits=jags.inits,jags.params, n.iter=2000,model.file=model)
 	beta.est<-jags.fit$BUGSoutput$sims.list$beta
 	sigma.est<-jags.fit$BUGSoutput$sims.list$sigma
 	re.int<-jags.fit$BUGSoutput$sims.list$gamma1
 	re.slope<-jags.fit$BUGSoutput$sims.list$gamma2
-	alpha1<-jags.fit$BUGSoutput$sims.list$alpha1
+	alpha1<-jags.fit$BUGSoutput$sims.list$alpha
 	alpha2<-jags.fit$BUGSoutput$sims.list$alpha2
 	out = list(beta=beta.est, re_int=re.int, re_slope=re.slope, sigma=sigma.est, alpha1=alpha1, alpha2=alpha2)
 	out
@@ -68,7 +68,7 @@ Sys.time()
 mn_t3_10_DPoutput4 <- foreach(qt=c(0.25,0.5,0.75),.packages=c("rjags","R2jags","foreach")) %do% {
   foreach(i=1:30,.packages=c("rjags","R2jags","foreach"),.verbose=T )  %dopar% {
   	set.seed(123)
-  temp <- runjags(mn_t3_2re_30[[i]], y='y', x='x', tau=qt, I=100, K=150, model=model.file)
+  temp <- runjags(mn_t3_2re_30[[i]], y='y', x='x', tau=qt, I=100, K=200, model=model.file)
   temp
   	}
   }  
