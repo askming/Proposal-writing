@@ -61,9 +61,9 @@ registerDoParallel(cl)
 # registerDoRNG(1234)
 clusterExport(cl=cl,ls())
 
-
-mn_t3_10_DPoutput <- foreach(qt=c(0.25,0.5,0.75),.packages=c("rjags","R2jags","foreach")) %do% {
-  foreach(i=1:10,.packages=c("rjags","R2jags","foreach"),.verbose=T )  %dopar% {
+Sys.time()
+mn_t3_10_DPoutput4 <- foreach(qt=c(0.25,0.5,0.75),.packages=c("rjags","R2jags","foreach")) %do% {
+  foreach(i=51:100,.packages=c("rjags","R2jags","foreach"),.verbose=T )  %dopar% {
   	set.seed(123)
   temp <- runjags(mn_t3_100[[i]], y='y', x='x', tau=qt, I=100, K=200, model=model.file)
   temp
@@ -71,8 +71,9 @@ mn_t3_10_DPoutput <- foreach(qt=c(0.25,0.5,0.75),.packages=c("rjags","R2jags","f
   }  
 
 #names(results) <- RdataStrings
-setwd("/work/02784/myang3/proposal_sim_revision/data_out")
-save( mn_t3_30_output,file="mn_t3_10_DPoutput.Rdata")
+setwd("/work/02784/myang3/proposal_sim_revision/data_out/BQLMM")
+save( mn_t3_10_DPoutput4,file="mn_t3_10_DPoutput4.Rdata")
+Sys.time()
 
 
 

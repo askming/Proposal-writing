@@ -3,19 +3,19 @@
 # estimation of the fixed effects
 
 rm(list=ls())
-setwd("/work/02784/myang3/proposal_sim_revision//data_in")
+setwd("/work/02784/myang3/proposal_sim_revision/data_in")
 load(dir()[3])
 require(R2jags)		
 
 #### define the custom jags function ########
 run_jags<-function(data,tau,I,K){
 	# K is number of truncation
-	setwd("/work/02784/myang3/blqmm_pd/model")
-	model.file<-"/work/02784/myang3/blqmm_pd/model/BQLMM_DP.txt"
+	setwd("/work/02784/myang3/proposal_sim_revision/model/quantile_regression")
+	model.file<-"/work/02784/myang3/proposal_sim_revision/model/quantile_regression/BQLMM_DP.txt"
 	N <- length(data$y)
 	jags.data <- list(y=data$y, x=data$x, qt=tau, t=data$t, I=I, K=K)
  	jags.params<-c("beta","gamma","sigma")
- 	jags.inits<-function(){	list(beta=c(0.1,0.1), gamma=rep(0.1,I), sigma=0.1, alpha=0.1, er=rep(0.1,N))	
+ 	jags.inits<-function(){	list(beta=c(0.1,0.1), gamma=rep(0.1,I), sigma=0.1, alpha=0.4, er=rep(0.1,N))	
   }	
   jags(data=jags.data, inits=jags.inits, jags.params, n.iter=2000, n.burnin=1000,model.file=model.file)	
 }
@@ -54,10 +54,8 @@ registerDoParallel(cl)
 clusterExport(cl=cl,ls())
 
 ######## run model on data ########
-mn_t3_30_DPoutput <- foreach(qt=c(0.25,0.5,0.75),.packages=c("rjags","R2jags","foreach")) %do% {
-  foreach(i=1:300,.packages=c("rjags","R2jags","foreach"),.verbose=T )  %dopar% {
-  	set.seed(123)
-# system.time(results <- dforeach(i = 1:100) %dopar% {
+mn_t3_30_DPoutput <- foreach(qt=c(0.25,0.5,0.75),.packages=c("rjags","R2jags","foreach")) %do% { foreach(i=1:30,.packages=c("rjags","R2jags","foreach"),.verbose=T )  %dopar% {
+  set.seed(123)
   temp <- run_jags(mn_t3_300[[i]],tau=qt,I=100,K=200)
   temp$BUGSoutput$sims.list
   	}

@@ -13,10 +13,10 @@ gen_mn = function(I, p, m, s){
 }
 
 # generate mixture normal random effects
-mn = gen_mn(100, 0.3, c(-0.7,0.3), c(0.3,0.3))
+# mn = gen_mn(100, 0.3, c(-0.7,0.3), c(0.3,0.3))
 
 # function to generate single data set
-gen_data = function(beta, I, t, re, error){
+gen_data = function(beta, I, t, error){
 	# I is the number of subjects
 	# t is the number of repeated measures
 	# re is the random effects
@@ -28,6 +28,7 @@ gen_data = function(beta, I, t, re, error){
 	
 	x = array(rep(1, I*t*ncol), dim=c(I, t, ncol=ncol))
 	x[,,2] = rnorm(I*t, 0.5, 4)
+	re = gen_mn(100, 0.3, c(-0.7,0.3), c(0.3,0.3))
 	# re1 = rnorm(I, 0, 9) # random intercept
 	
 	y = matrix(NA, nrow=I, ncol=t)
@@ -42,7 +43,7 @@ gen_data = function(beta, I, t, re, error){
 
 # test = gen_data(c(1, -1), 100, 5, re=re, error=rt(500, 3))
 
-mn_t3_100 = lapply(rep(100,100), gen_data, beta=c(1,-1), t = 5, re=mn, error=matrix(rt(500, 3), nrow=100))
+mn_t3_100 = lapply(rep(100,100), gen_data, beta=c(5,-1), t = 5, error=matrix(rt(500, 3), nrow=100))
 
 
 ## savedata
