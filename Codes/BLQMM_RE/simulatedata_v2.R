@@ -28,27 +28,28 @@ gen_data = function(beta, I, t, error){
 	
 	x = array(rep(1, I*t*ncol), dim=c(I, t, ncol=ncol))
 	x[,,2] = rnorm(I*t, 0.5, 4)
-	re = gen_mn(100, 0.3, c(-0.7,0.3), c(0.3,0.3))
+	re1 = rnorm(100, 1, 2)
+	re2 = gen_mn(100, 0.3, c(-0.7,0.3), c(0.3,0.3))
 	# re1 = rnorm(I, 0, 9) # random intercept
 	
 	y = matrix(NA, nrow=I, ncol=t)
 	# ind <- seq(1,(I+1)*t, by=t) # indicatior of observation
 	for (i in 1:I){ 
 		for (j in 1: t){
-    		y[i,j] <- beta%*%x[i,j,] + re[i] + (1+x[i,j,2]/11)*error[i,j]
+    		y[i,j] <- beta%*%x[i,j,] + re1[i] + x[i,j,2]*re2[i]+ (1+x[i,j,2]/11)*error[i,j]
     	}
  	}
-	outdata = list(y=y, x=x, ui=re, e=error)	
+	outdata = list(y=y, x=x, ui1=re1, ui2=re2, e=error)	
 }
 
 # test = gen_data(c(1, -1), 100, 5, re=re, error=rt(500, 3))
 
-mn_t3_100 = lapply(rep(100,100), gen_data, beta=c(5,-1), t = 5, error=matrix(rt(500, 3), nrow=100))
+mn_t3_2re_30 = lapply(rep(100,30), gen_data, beta=c(5,-1), t = 5, error=matrix(rt(500, 3), nrow=100))
 
 
 ## savedata
 setwd("/Users/askming/Dropbox/RA works/Self/Proposal writing/simulationdata")
-# save(mn_t3_100 ,file="mn_t3_100.Rdata")
+# save(mn_t3_2re_30 ,file="mn_t3_2re_30.Rdata")
 
 
 
