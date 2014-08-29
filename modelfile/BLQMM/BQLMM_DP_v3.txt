@@ -29,7 +29,7 @@ model{
 		Z[i] ~ dcat(p[])
 		M[i] ~ dcat(p2[])
 		gamma1[i] ~ dnorm(ctheta[Z[i]],tauinv[Z[i]]) # f(x|theta)
-		gamma2[i] ~ dnorm(ctheta[M[I]],tauinv[M[i]])
+		gamma2[i] ~ dnorm(ctheta2[M[i]],tauinv[M[i]])
 		for (j in 1:J) {
 			er[i,j]~dexp(sigma)
 			mu[i,j] <- gamma1[i] + gamma2[i]*x[i,j,2] + inprod(x[i,j,], beta[]) + k1*er[i,j]
@@ -48,6 +48,10 @@ model{
 	### centering theta
 	for (k in 1:N){
 		ctheta[k] <- theta[k]-inprod(theta[],p[])
+	}
+
+	for (k in 1:N){
+		ctheta2[k] <- theta[k]-inprod(theta[],p2[])
 	}
 	
 	
