@@ -1,0 +1,34 @@
+model{
+	
+	### BQLMM part using normal model R.E.
+	### this model is used to run the data mn_t3_2re_new_30
+	k1<-(1-2*qt)/(qt*(1-qt))
+	k2<-2/(qt*(1-qt))
+	
+	### the mixed model part
+	for (i in 1:I) {
+		gamma1[i] ~ dnorm(0, gamma1.phi) # random intercept
+		gamma2[i] ~ dnorm(0, gamma2.phi) # random slope
+		for (j in 1:J) {
+			er[i,j]~dexp(sigma)
+			mu[i,j] <- gamma1[i] + gamma2[i]*x[i,j,2] + inprod(x[i,j,], beta[]) + k1*er[i,j]
+			prec[i,j] <- sigma/(k2*er[i,j])
+			y[i,j] ~ dnorm(mu[i,j],prec[i,j])
+		}
+	}
+	
+	
+	
+	### assign the priors	
+	beta[1] ~ dnorm(0, 0.001)
+	beta[2] ~ dnorm(0, 0.001)
+	sigma ~ dgamma(0.01,0.01)
+	gamma1.phi ~ dgamma(0.001, 0.001)
+	gamma2.phi ~ dgamma(0.001, 0.001)
+	phi1.sqed <- 1/gamma1.phi
+	phi1 <- sqrt(phi1.sqed)
+	phi2.sqed <- 1/gamma2.phi
+	phi2 <- sqrt(phi2.sqed)
+
+	
+}
