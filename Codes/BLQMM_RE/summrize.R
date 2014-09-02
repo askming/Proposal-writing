@@ -65,9 +65,9 @@ plot_data = function(data, re, ...){
 #### try ####
 
 plot_data(mn_t3_2re_30, 're_int', ylim=c(0, 0.3), main='random intercept densities', sub="data=mn_t3_2re_30")
-lines(density(re_int1+0.5), lty=2, col=2)
-lines(density(re_int2+0.5), lty=3, col=3)
-lines(density(re_int3+0.5), lty=4, col=4)
+lines(density(re_int1+1), lty=2, col=2)
+lines(density(re_int2+1), lty=3, col=3)
+lines(density(re_int3+1), lty=4, col=4)
 
 # lines(density(re_slope1), lty=2, col=2)
 # lines(density(re_slope2), lty=3, col=3)
