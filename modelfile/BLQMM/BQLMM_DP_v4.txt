@@ -1,0 +1,72 @@
+model{
+	### define the stick-breaking part for gamma1
+	r[1] ~ dbeta(1,alpha)T(,0.999)
+	p[1] <- r[1]
+	for (j in 2:N-1){ # N is the number of truncation DP (# of clusters)
+		r[j] ~ dbeta(1,alpha)T(,0.999)
+		p[j] <- r[j]*(1-r[j-1])*p[j-1]/r[j-1]
+	}
+	sum_p <- sum(p[1:N-1])
+	for (k in N:N) {p[k] <- 1-sum_p}
+
+	### for gamma2
+	r2[1] ~ dbeta(1,alpha2)T(,0.999)
+	p2[1] <- r2[1]
+	for (j in 2:N-1){ # N is the number of truncation DP (# of clusters)
+		r2[j] ~ dbeta(1,alpha2)T(,0.999)
+		p2[j] <- r2[j]*(1-r2[j-1])*p2[j-1]/r2[j-1]
+	}
+	sum_p2 <- sum(p2[1:N-1])
+	for (k in N:N) {p2[k] <- 1-sum_p2}
+
+
+	### BQLMM part using DP model R.E.
+	k1<-(1-2*qt)/(qt*(1-qt))
+	k2<-2/(qt*(1-qt))
+	
+	### the mixed model part
+	for (i in 1:I) {
+		Z[i] ~ dcat(p[])
+		M[i] ~ dcat(p2[])
+		gamma1[i] ~ dnorm(theta[Z[i]],tauinv[Z[i]]) # f(x|theta)
+		gamma2[i] ~ dnorm(theta[M[i]],tauinv[M[i]])
+		for (j in 1:J) {
+			er[i,j]~dexp(sigma)
+			mu[i,j] <- gamma1[i] + gamma2[i]*x[i,j,2] + inprod(x[i,j,], beta[]) + k1*er[i,j]
+			prec[i,j] <- sigma/(k2*er[i,j]) # why?
+			y[i,j] ~ dnorm(mu[i,j],prec[i,j])
+		}
+	}
+	
+	### base distribution
+	for (k in 1:N){
+		theta[k] ~ dnorm(mu0,tau0)
+		tau[k] <- 1/tauinv[k]
+		tauinv[k] ~ dgamma(3,b)
+	}
+
+	### centering theta
+	#for (k in 1:N){
+	#	ctheta[k] <- theta[k]-inprod(theta[],p[])
+	#}
+
+	#for (k in 1:N){
+	#	ctheta2[k] <- theta[k]-inprod(theta[],p2[])
+	#}
+	
+	
+	### assign the priors
+	mu0 ~ dnorm(0,0.01)
+	tau0 <- pow(sigmaF0,-2)
+	sigmaF0 ~ dgamma(100,100) # replace dunif(0, 10) to get big variance de wider range of theta
+	b ~ dgamma (0.03, 0.03)
+	alpha ~ dunif(0.3, 10)
+	alpha2 ~ dunif(0.3, 10)
+	
+	beta[1] ~ dnorm(0, 0.01)
+	beta[2] ~ dnorm(0, 0.01)
+	#beta[3] ~ dnorm(0, 0.01)
+	sigma ~ dgamma(0.01,0.01)
+	#prec <- pow(sigma,-2)
+	
+}
